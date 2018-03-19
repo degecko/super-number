@@ -2,7 +2,7 @@
     "name": "degecko/super-number",
     "description": "An objectifier for primitive numeric data types.",
     "type": "composer-plugin",
-    "license": "GPL",
+    "license": "MIT",
     "authors": [
         {
             "name": "Cosmin Gheorghita",
