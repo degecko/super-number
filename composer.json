@@ -1,6 +1,6 @@
 {
     "name": "degecko/super-number",
-    "description": "An extension to the primitive data types of integer and float, to treat them like objects.",
+    "description": "An objectifier for primitive numeric data types.",
     "type": "composer-plugin",
     "license": "GPL",
     "authors": [

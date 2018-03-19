@@ -5,7 +5,7 @@ namespace SuperNumber\Traits;
 trait Mutators
 {
     /**
-     * Allows to pass a mutator for $number.
+     * Allows to pass a mutator to modify $number.
      *
      * E.g.:
      * $func = function ($number) {

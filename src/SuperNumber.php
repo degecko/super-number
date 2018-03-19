@@ -7,8 +7,44 @@ use SuperNumber\Traits\Mutators;
 use SuperNumber\Traits\SimpleMath;
 
 /**
- * Class SuperNumber
+ * SuperNumber is a number objectifier.
+ * Its purpose is to simply working with numbers.
  *
+ * @method abs
+ * @method acos
+ * @method acosh
+ * @method asin
+ * @method asinh
+ * @method atan
+ * @method atanh
+ * @method ceil
+ * @method cos
+ * @method cosh
+ * @method deg2rad
+ * @method exp
+ * @method expm1
+ * @method floor
+ * @method fmod
+ * @method log10
+ * @method log1p
+ * @method log
+ * @method min
+ * @method max
+ * @method rad2deg
+ * @method round
+ * @method sin
+ * @method sinh
+ * @method sqrt
+ * @method tan
+ * @method tanh
+ * @method base_convert
+ * @method bindec
+ * @method decbin
+ * @method dechex
+ * @method decoct
+ * @method hexdec
+ * @method octdec
+ * @method pow
  * @package SuperNumber
  */
 class SuperNumber
@@ -24,18 +60,19 @@ class SuperNumber
 
     /**
      * Initiates the class if the given $number is a valid numeric value.
-     * Otherwise, it throws and explicit error in regards to it.
+     * Otherwise, it throws and explicit error.
      *
      * @param $number
      */
     public function __construct($number)
     {
-        $this->validate($number);
+        $this->number = $number;
+        $this->validate();
     }
 
     /**
      * Returns the number.
-     * Use get() to get the value without being casted to a string.
+     * Use get() to get the value uncasted.
      *
      * @return string
      */
@@ -69,31 +106,27 @@ class SuperNumber
     }
 
     /**
-     * Validates the given $number to be numberic.
-     * Casts the number to float or int after it determines the type.
+     * Checks the given $number to be numeric.
      * Stores the number so it can be mutated.
-     *
-     * @param $number
      */
-    private function validate($number)
+    private function validate()
     {
-        if (! is_numeric($number)) {
-            throw new \InvalidArgumentException("Invalid numeric value provided ($number).");
+        if (! is_numeric($this->number)) {
+            throw new \InvalidArgumentException("Invalid numeric value provided ($this->number).");
         }
-
-        $this->number = $number;
     }
 
     /**
-     * Transforms the value based on the unit
+     * Transforms the value.
+     * If $percent is true, it will return that percentage of the value.
      *
      * @param      $value
-     * @param bool $percent
+     * @param bool $percentage
      * @return float|int
      */
-    private function handleValue($value, $percent = false)
+    private function handleValue($value, $percentage = false)
     {
-        if ($percent) {
+        if ($percentage) {
             return $value / 100 * $this->number;
         }
 
