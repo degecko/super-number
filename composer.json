@@ -1,7 +1,8 @@
 {
     "name": "degecko/super-number",
     "description": "An objectifier for primitive numeric data types.",
-    "type": "composer-plugin",
+    "keywords": ["numeric", "number", "objectifier"],
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -11,7 +12,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.6.0"
+        "php": ">=5.6.0",
+        "degecko/super-number": "dev-master"
     },
     "autoload": {
         "psr-4": {
