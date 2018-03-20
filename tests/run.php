@@ -5,13 +5,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 function dd () {
     foreach (func_get_args() as $arg) {
         print_r($arg);
+        echo PHP_EOL;
     }
 
-    die(PHP_EOL);
+    die;
 }
 
 function number ($number) {
 	return new DeGecko\SuperNumber($number);
 }
-
-dd(number(10)->printf('%.2f'));

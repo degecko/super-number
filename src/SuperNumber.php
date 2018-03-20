@@ -3,6 +3,7 @@
 namespace DeGecko;
 
 use DeGecko\Traits\Castings;
+use DeGecko\Traits\Checks;
 use DeGecko\Traits\Formulas;
 use DeGecko\Traits\Mutators;
 use DeGecko\Traits\Output;
@@ -51,7 +52,7 @@ use DeGecko\Traits\SimpleMath;
  */
 class SuperNumber
 {
-    use SimpleMath, Formulas, Mutators, Output, Castings;
+    use SimpleMath, Formulas, Mutators, Output, Castings, Checks;
 
     /**
      * The current value of the instance.

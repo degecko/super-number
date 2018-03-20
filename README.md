@@ -111,6 +111,16 @@ number(1000)->format(2, '_', '-'); // Returns 1-000_00
 - `toInt()` will cast the current value to an integer
 - `toFloat()` will cast the current value to a float
 
+#### Checks
+
+- `isOdd()` checks if the integer version of the current number is odd.
+- `isEven()` checks if the integer version of the current number is even.
+- `eq()` / `equal()` / `equals()` checks if the current value is equal to the provided value.
+- `lt()` / `lessThan()` checks if the current value is less than the provided value.
+- `lte()` / `lessThanOrEqual()` checks if the current value is less than or equal to the provided value.
+- `gt()` / `greaterThan()` checks if the current value is greater than the provided value.
+- `gte()` / `greaterThanOrEqual()` checks if the current value is greater than or equal to the provided value.
+
 And, also of the PHP math functions are supported and can be chained together:
 
 - `abs()`
