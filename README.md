@@ -5,7 +5,7 @@ SuperNumber is a number objectifier. Its purpose is to keep simple math OOP frie
 To use it, you can use it via composer:
 
 ```
-composer install degecko/super-number
+composer require degecko/super-number
 ```
 
 Then, simply initialize it on any number:
