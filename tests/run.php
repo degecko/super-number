@@ -11,5 +11,7 @@ function dd () {
 }
 
 function number ($number) {
-	return new SuperNumber\SuperNumber($number);
+	return new DeGecko\SuperNumber($number);
 }
+
+dd(number(10)->printf('%.2f'));

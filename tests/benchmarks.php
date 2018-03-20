@@ -18,7 +18,7 @@ function b1 ()
 
     if ($benchmark == 'supernumber') {
         foreach (range(1, $repetitions) as $i) {
-            $number = new \SuperNumber\SuperNumber($i);
+            $number = new DeGecko\SuperNumber($i);
             $number->add(3);
         }
     } else {

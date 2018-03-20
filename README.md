@@ -11,14 +11,14 @@ composer require degecko/super-number
 Then, simply initialize it on any number:
 
 ```
-$number = new SuperNumber\SuperNumber(100);
+$number = new DeGecko\SuperNumber(100);
 ```
 
 If you need to initialize it multiple times, I recommend creating a helper, like the following:
 
 ```
 function number ($n) {
-    return new SuperNumber\SuperNumber($n);
+    return new DeGecko\SuperNumber($n);
 }
 ```
 
@@ -46,19 +46,23 @@ Of course, you can chain them together:
 number(10)->add(3)->divide(2); // Returns 6.5
 ```
 
-Apart from those, there are two other basic methods:
+Apart from those, there are other basic methods:
 
+- `increment()` / `decrement()` which are aliases of `add(1)` and `subtract(1)`. You can specify a different value by passing it as the first parameter.
 - `power()` / `pow()` to raise to a power
 - `modulo()` / `mod()` to perform modulo
 
 E.g.
 
 ```
+number(5)->increment(); // Returns 6
+number(5)->decrement(2); // Returns 3
+number(10)->increment(10, true); // Returns 11, because 10% of 10 is 1, and 10 + 1 = 11
 number(2)->power(3); // Returns 8
 number(10)->mod(5); // Returns 0
 ```
 
-Also, there are some common fomulas available, like:
+#### Formulas
 
 - `percentageOf()` / `percentOf()` computes the percentage of the current number from the given value.
 - `percentageFrom()` / `percentFrom()` computes what percentage of the given number represents the current number.
@@ -69,6 +73,43 @@ E.g.
 number(40)->percentOf(200); // Returns 20, because 40 is 20% of 200.
 number(40)->percentFrom(200); // Returns 80, because 40% of 200 is 80.
 ```
+
+#### Mutators
+
+- `mutate(callable $fn)` will let you alter the currently stored number any way you want, by passing it a callable function. The first parameter of the function is the current $value. Whatever you return, will become the new number.
+
+*Warning!* This does not validate your new value to be numeric.
+
+E.g.
+
+```
+number(3.1)->mutate(function ($value) {
+    return (int) $value;
+}); // Returns 3
+```
+
+#### Output
+
+The magic method __toString() will return `(string) $this->number;`, so there's no need to call another method to get the output of a current SuperNumber object. However, there are additional methods to get the output, if required.
+
+- `get()` which returns the current number, uncasted.
+- `printf($pattern, ...$arguments)` which allows you to use sprintf() on the current number. It automatically adds the second sprintf parameter to be the current value.
+- `format($decimals = 0, $decPoint = '.', $thousandsSep = ',')` which is an alias of number_format. It supports the same parameters as number_format.
+
+```
+number(10)->printf('%d'); // Returns 10
+number(10)->printf('$%.2f'); // Returns $10.00
+
+number(1000)->format(); // Returns 1,000
+number(1000)->format(2); // Returns 1,000.00
+number(1000)->format(2, '_'); // Returns 1,000_00
+number(1000)->format(2, '_', '-'); // Returns 1-000_00
+```
+
+#### Castings
+
+- `toInt()` will cast the current value to an integer
+- `toFloat()` will cast the current value to a float
 
 And, also of the PHP math functions are supported and can be chained together:
 

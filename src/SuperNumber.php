@@ -1,10 +1,12 @@
 <?php
 
-namespace SuperNumber;
+namespace DeGecko;
 
-use SuperNumber\Traits\Formulas;
-use SuperNumber\Traits\Mutators;
-use SuperNumber\Traits\SimpleMath;
+use DeGecko\Traits\Castings;
+use DeGecko\Traits\Formulas;
+use DeGecko\Traits\Mutators;
+use DeGecko\Traits\Output;
+use DeGecko\Traits\SimpleMath;
 
 /**
  * SuperNumber is a number objectifier.
@@ -49,7 +51,7 @@ use SuperNumber\Traits\SimpleMath;
  */
 class SuperNumber
 {
-    use SimpleMath, Formulas, Mutators;
+    use SimpleMath, Formulas, Mutators, Output, Castings;
 
     /**
      * The current value of the instance.
@@ -68,17 +70,6 @@ class SuperNumber
     {
         $this->number = $number;
         $this->validate();
-    }
-
-    /**
-     * Returns the number.
-     * Use get() to get the value uncasted.
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return (string) $this->number;
     }
 
     /**
@@ -131,16 +122,6 @@ class SuperNumber
         }
 
         return $value;
-    }
-
-    /**
-     * Returns the current value of $number.
-     *
-     * @return mixed
-     */
-    public function get()
-    {
-        return $this->number;
     }
 
     /**

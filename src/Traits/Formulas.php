@@ -1,6 +1,6 @@
 <?php
 
-namespace SuperNumber\Traits;
+namespace DeGecko\Traits;
 
 trait Formulas
 {

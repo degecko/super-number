@@ -1,6 +1,6 @@
 <?php
 
-namespace SuperNumber\Traits;
+namespace DeGecko\Traits;
 
 /**
  * Trait SimpleMath
@@ -27,16 +27,29 @@ trait SimpleMath
     /**
      * Alias of add.
      *
-     * @param $value
+     * @param      $value
+     * @param bool $percent
      * @return $this
      */
-    public function plus($value)
+    public function plus($value, $percent = false)
     {
-        return $this->add($value);
+        return $this->add($value, $percent);
     }
 
     /**
-     * Substraction.
+     * Alias of add.
+     *
+     * @param      $value
+     * @param bool $percent
+     * @return $this
+     */
+    public function increment($value = 1, $percent = false)
+    {
+        return $this->add($value, $percent);
+    }
+
+    /**
+     * Subtraction.
      *
      * @param         $value
      * @param boolean $percent
@@ -69,6 +82,18 @@ trait SimpleMath
      * @return $this
      */
     public function minus($value, $percent = false)
+    {
+        return $this->subtract($value, $percent);
+    }
+
+    /**
+     * Alias of subtract.
+     *
+     * @param      $value
+     * @param bool $percent
+     * @return $this
+     */
+    public function decrement($value = 1, $percent = false)
     {
         return $this->subtract($value, $percent);
     }

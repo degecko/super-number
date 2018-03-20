@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'SuperNumber\\' => array($baseDir . '/src'),
+    'DeGecko\\' => array($baseDir . '/src'),
 );
