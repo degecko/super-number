@@ -121,7 +121,7 @@ number(1000)->format(2, '_', '-'); // Returns 1-000_00
 - `gt()` / `greaterThan()` checks if the current value is greater than the provided value.
 - `gte()` / `greaterThanOrEqual()` checks if the current value is greater than or equal to the provided value.
 
-And, also of the PHP math functions are supported and can be chained together:
+And, also all of the PHP math functions are supported and can be chained together:
 
 - `abs()`
 - `acos()`
