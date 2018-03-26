@@ -4,7 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 isset($argv[1]) or die('You need to provide a type.');
 isset($argv[2]) or die('You need to provide a benchmark name.');
-isset($argv[3]) or die('You need to provide a number of repetitions.');
+isset($argv[3]) or die('You need to provide a number of repetitions..');
 
 $type = $argv[1];
 $benchmark = $argv[2];
